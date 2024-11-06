@@ -424,3 +424,48 @@ int main() {
 
     return 0;
 }
+
+
+// C program of insertion in Linked List:
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void insertAtBeginning(struct Node** head, int newData) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+
+    newNode->data = newData;
+    newNode->next = *head;
+    *head = newNode;
+}
+
+void printList(struct Node* head) {
+    struct Node* temp = head;
+
+    while (temp != NULL) {
+        printf("%d ->> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+
+    insertAtBeginning(&head, 111);
+    insertAtBeginning(&head, 222);
+    insertAtBeginning(&head, 333);
+    insertAtBeginning(&head, 444);
+    insertAtBeginning(&head, 555);
+
+    printf("So, The Linked List Is : \n");
+    printList(head);
+
+    return 0;
+}
